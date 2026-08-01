@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.sunlight.is/ (Errors — HTTP Status codes)
+format: json-api-errors
+envelope: >-
+  Errors follow the JSON:API errors document (a top-level "errors" array of
+  error objects), served as application/vnd.api+json. Sunlight documents the
+  set of HTTP status codes below; it does not publish a machine-readable
+  problem-type registry (no RFC 9457 problem+json).
+problems:
+- status: 200
+  title: OK
+  detail: The request was successful.
+- status: 201
+  title: Created
+  detail: The resource was successfully created.
+- status: 202
+  title: Accepted
+  detail: The resource was asynchronously created.
+- status: 204
+  title: No Content
+  detail: The server successfully processed the request and is not returning any content.
+- status: 400
+  title: Bad Request
+  detail: General client error, possibly malformed data.
+- status: 401
+  title: Unauthorized
+  detail: Your API key is wrong.
+- status: 403
+  title: Forbidden
+  detail: The requested resource is hidden for administrators only.
+- status: 404
+  title: Not Found
+  detail: The specified resource could not be found.
+- status: 422
+  title: Unprocessable Entity
+  detail: The request was well-formed but was unable to be followed due to semantic errors.
+- status: 500
+  title: Internal Server Error
+  detail: A server-side problem occurred; try again later.
+- status: 503
+  title: Service Unavailable
+  detail: Temporarily offline for maintenance; try again later.

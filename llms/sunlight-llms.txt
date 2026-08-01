@@ -1,0 +1,26 @@
+# Sunlight
+
+> Sunlight is an educational-spending platform: organizations fund learning by creating groups, inviting members, allocating a per-user education budget ("sunlight"), and letting members order courses, books and subscriptions (e.g. Amazon, Platzi). Its REST API is built on the JSON:API specification with Bearer-token authentication and exposes groups, memberships/invitations, per-user credit transactions, orders, and an activity feed. Backed by Seedcamp and Speedinvest. Note: as of 2026-07-21 the API backend host appears decommissioned (dangling CNAME); the developer docs and marketing site remain online.
+
+## API
+- [Sunlight API developer docs](https://docs.sunlight.is/): REST/JSON:API reference — groups, invitations, credits/budgets, orders, activities. Base URL https://app.sunlight.is/api. Auth: Bearer API key (issued by Sunlight support).
+
+## Operations
+- POST /api/groups — Create a group
+- POST /api/v2/group-invitations — Invite an unregistered user (by email)
+- POST /api/v2/group-users — Invite a registered user
+- POST /api/credits — Edit an individual member's budget (returns a transaction)
+- GET /api/v2/orders — List orders (page/sort/filter)
+- GET /api/activities — List activities (page/filter)
+
+## Conventions
+- [Authentication](authentication/sunlight-authentication.yml): HTTP Bearer API key in the Authorization header.
+- [Conventions](conventions/sunlight-conventions.yml): JSON:API envelope, page-number pagination (page[number]/page[size], max 50), sort, filter[...], include; monetary amounts in cents.
+- [Error catalog](errors/sunlight-problem-types.yml): JSON:API errors; documented HTTP status codes 200/201/202/204/400/401/403/404/422/500/503.
+- [Data model](data-model/sunlight-data-model.yml): group, group-user, group-invitation, user, transaction, order, activity.
+- [Conformance](conformance/sunlight-conformance.yml): JSON:API, REST, HTTP Bearer auth, page-number pagination.
+- [Lifecycle](lifecycle/sunlight-lifecycle.yml): uri-path versioning (mixed unversioned + v2); no deprecation policy or status page; backend currently dormant.
+
+## Docs
+- [Developer documentation](https://docs.sunlight.is/)
+- [Marketing site](https://www.sunlight.is/)

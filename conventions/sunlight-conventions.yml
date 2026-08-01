@@ -1,0 +1,80 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.sunlight.is/ (Overview, Query parameters, Authentication, Errors)
+description: >-
+  Cross-cutting request/response conventions for the Sunlight REST API. The API
+  is organized around REST and built on the JSON:API specification; requests and
+  responses use the JSON:API document envelope (data / attributes / relationships
+  / included / meta / links) and the application/vnd.api+json media type.
+
+base_url: https://app.sunlight.is/api
+api_style: REST over HTTPS, JSON:API document envelope (application/vnd.api+json)
+
+authentication:
+  scheme: Bearer API key in the Authorization header
+  docs: https://docs.sunlight.is/
+  detail: authentication/sunlight-authentication.yml
+
+idempotency:
+  supported: false
+  note: >-
+    No idempotency-key mechanism is documented. Write operations (POST /groups,
+    /group-invitations, /group-users, /credits) are not documented as
+    idempotent.
+
+pagination:
+  style: page-number (JSON:API "page" family)
+  request_params:
+    page[number]: What page of results to fetch; defaults to the first page.
+    page[size]: Results per page; defaults to 10, max 50.
+  response_fields:
+    meta.totalPages: total number of pages
+    meta.totalResults: total number of results (activities)
+    links.self: current page URL
+    links.first: first page URL
+    links.prev: previous page URL
+    links.next: next page URL
+    links.last: last page URL
+  docs: https://docs.sunlight.is/
+
+sorting:
+  mechanism: sort query parameter (JSON:API), e.g. ?sort=name (ascending)
+  orders_valid_values: [name, created-at, update-at, total, status, provider]
+  defaults:
+    orders: sorted by updated-at, descending
+    activities: sorted by created-at, descending
+  docs: https://docs.sunlight.is/
+
+filtering:
+  mechanism: >-
+    filter query parameter. JSON:API leaves filter semantics implementation-
+    defined; Sunlight uses filter[<key>]=<value>.
+  orders_filters: [id, group-id, received-by, status]
+  activities_filters: [id, owner-id, include-friends]
+  docs: https://docs.sunlight.is/
+
+inclusion_of_related_resources:
+  mechanism: include query parameter (JSON:API), e.g. ?include=category
+  description: Inlines related resources under the top-level "included" member.
+  docs: https://docs.sunlight.is/
+
+resource_identifiers:
+  format: Opaque short hexadecimal string ids (e.g. "806b946cf5"), server-assigned.
+  attribute_naming: kebab-case JSON:API attributes (e.g. created-at, about-url, delivery-email).
+
+monetary_values:
+  representation: Integer minor units (cents). e.g. credit amount and order price are in cents.
+
+error_envelope:
+  format: JSON:API errors (not RFC 9457 problem+json)
+  detail: errors/sunlight-problem-types.yml
+  http_status_codes: [200, 201, 202, 204, 400, 401, 403, 404, 422, 500, 503]
+
+versioning:
+  scheme: uri-path (mixed)
+  note: >-
+    Some routes are unversioned (/api/groups, /api/credits, /api/activities)
+    while others carry a v2 segment (/api/v2/orders, /api/v2/group-invitations,
+    /api/v2/group-users). No formal version-negotiation header or deprecation
+    policy is documented.
+  detail: lifecycle/sunlight-lifecycle.yml

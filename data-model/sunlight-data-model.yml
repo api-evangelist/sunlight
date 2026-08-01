@@ -1,0 +1,89 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  Derived from the object models and request/response examples published at
+  https://docs.sunlight.is/ (Group Model, Order Model, Activity Object, and the
+  group-invitation / group-user / credit / transaction examples).
+description: >-
+  Entity-relationship model for Sunlight's education-spending API, reconstructed
+  from the JSON:API resource objects documented in the developer docs. All ids
+  are opaque server-assigned short hex strings.
+entities:
+- name: group
+  json_api_type: groups
+  description: A collection of users that pools and monitors education spending.
+  attributes:
+  - {name: id, type: string}
+  - {name: name, type: string}
+  - {name: address, type: string}
+  - {name: bio, type: string}
+  - {name: about-url, type: string}
+  - {name: manager-approval, type: boolean}
+  - {name: privacy-setting, type: string, enum: [admin-invite, public_access, request_invite]}
+  - {name: avatar-url, type: string}
+  - {name: cover-url, type: string}
+  - {name: number-of-members, type: integer}
+  - {name: slack-config-url, type: string}
+  - {name: slack-url, type: string}
+  - {name: slack-token, type: string}
+  - {name: created-at, type: timestamp}
+  - {name: updated-at, type: timestamp}
+- name: group-user
+  json_api_type: group-users
+  description: Membership record linking a user to a group, with an administrator flag.
+  attributes:
+  - {name: id, type: string}
+  - {name: administrator, type: boolean}
+- name: group-invitation
+  json_api_type: group-invitations
+  description: An invitation sent to an unregistered user (by email) to join a group.
+  attributes:
+  - {name: id, type: string}
+  - {name: email, type: string}
+- name: user
+  json_api_type: users
+  description: A registered person who can belong to groups and receive orders.
+  attributes:
+  - {name: id, type: string}
+- name: transaction
+  json_api_type: transactions
+  description: A budget/credit movement crediting a group-user's balance (amount in cents).
+  attributes:
+  - {name: id, type: string}
+  - {name: amount, type: integer, note: cents}
+  - {name: source, type: string, example: credit}
+  - {name: created-at, type: timestamp}
+- name: order
+  json_api_type: orders
+  description: A request to purchase an educational item from a provider.
+  attributes:
+  - {name: id, type: string}
+  - {name: name, type: string}
+  - {name: url, type: string}
+  - {name: provider, type: string}
+  - {name: cost, type: integer, note: cents}
+  - {name: price, type: integer, note: cents}
+  - {name: status, type: string, enum: [open, waiting, waiting-manager-approval, approved, manager-approved, payment-method-issued, completed, cancelled, refunded]}
+  - {name: delivery-email, type: string}
+  - {name: address, type: string}
+  - {name: created-at, type: timestamp}
+  - {name: updated-at, type: timestamp}
+  - {name: status-changed-at, type: timestamp}
+- name: activity
+  json_api_type: activities
+  description: An audit-feed entry recording an action (joined/left group, bought a resource).
+  attributes:
+  - {name: id, type: string}
+  - {name: description, type: text}
+  - {name: track-type, type: string, example: [joined-group, leave-group, bought]}
+  - {name: subjects, type: json, note: denormalized metadata about owner/group/order/resource}
+  - {name: created-at, type: timestamp}
+relationships:
+- {from: group-user, type: belongs_to, to: group, via: group}
+- {from: group-user, type: belongs_to, to: user, via: user}
+- {from: group, type: has_many, to: group-user, via: members}
+- {from: group-invitation, type: belongs_to, to: group, via: group}
+- {from: transaction, type: belongs_to, to: group-user, via: group-user}
+- {from: order, type: belongs_to, to: user, via: received-by}
+- {from: order, type: belongs_to, to: group, via: group-id}
+- {from: activity, type: belongs_to, to: user, via: owner-id}

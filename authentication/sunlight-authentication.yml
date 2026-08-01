@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.sunlight.is/ (Authentication section)
+docs: https://docs.sunlight.is/
+summary:
+  types:
+  - http
+  api_key_in: []
+  oauth2_flows: []
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: >-
+    Bearer-token authentication. The API key is issued by Sunlight support and
+    passed as a Bearer token in the Authorization header, e.g.
+    "Authorization: Bearer <api_key>". Keys are long-lived secrets and carry
+    account privileges; the docs warn not to expose them in client-side code or
+    public repositories.
+  in: header
+  parameter_name: Authorization
+  sources:
+  - https://docs.sunlight.is/
+notes: >-
+  Sunlight uses a single opaque Bearer API key per account (no OAuth2, no OIDC,
+  no per-scope tokens). There is no self-service key issuance documented — keys
+  are provisioned by Sunlight support ("Sign Up for a Developer Key"). Because
+  the model is a single bearer secret, there is no OAuth scopes artifact.

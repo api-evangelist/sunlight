@@ -1,8 +1,28 @@
 aid: sunlight
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sunlight.png
 name: Sunlight
-description: Sunlight is a company surfaced as a portfolio company of seedcamp, speedinvest and added
-  to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Sunlight is an educational-spending platform that lets organizations fund
+  learning for their people. Administrators create groups, invite registered or
+  unregistered members, allocate a per-user education budget ("sunlight"), and
+  let members place orders for courses, books and subscriptions from providers
+  such as Amazon and Platzi, while an activity feed tracks what members join and
+  buy. Its REST API is built on the JSON:API specification (media type
+  application/vnd.api+json) with Bearer-token authentication, and exposes
+  groups, group membership and invitations, per-user credit/budget transactions,
+  orders, and activities. Sunlight was backed by Seedcamp and Speedinvest.
 url: https://raw.githubusercontent.com/api-evangelist/sunlight/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,17 +31,93 @@ x-backed-by:
 - speedinvest
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-operational-note: >-
+  As of 2026-07-21 the documented API backend host (app.sunlight.is /
+  api.sunlight.is) is a dangling CNAME to a decommissioned AWS Elastic
+  Beanstalk environment (sunlight-production.eu-west-1.elasticbeanstalk.com, no
+  A record) and the apex sunlight.is TLS endpoint returns a handshake
+  internal-error alert. The Slate developer docs (docs.sunlight.is, GitHub
+  Pages) and the Webflow marketing site (www.sunlight.is) remain online. The
+  API surface captured here is faithfully harvested from the live public docs;
+  the service itself appears dormant.
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v1
 tags:
 - Company
-apis: []
+- Education
+- EdTech
+- Learning
+- Budgeting
+- Spending
+- Fintech
+- JSON:API
+- Groups
+- Orders
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Sunlight API
+  description: >-
+    Sunlight's REST/JSON:API for managing education-spending groups: create
+    groups, invite registered and unregistered users, edit individual member
+    budgets (credits/transactions), list orders, and read the activity feed.
+    Authenticated with a Bearer API key issued by Sunlight support.
+  humanURL: https://docs.sunlight.is/
+  baseURL: https://app.sunlight.is/api
+  tags:
+  - Education
+  - Groups
+  - Orders
+  - Activities
+  - Budgeting
+  properties:
+  - type: Documentation
+    url: https://docs.sunlight.is/
+  - type: APIReference
+    url: https://docs.sunlight.is/
+  - type: Authentication
+    url: authentication/sunlight-authentication.yml
+  - type: Conventions
+    url: conventions/sunlight-conventions.yml
+  - type: ErrorCatalog
+    url: errors/sunlight-problem-types.yml
+  - type: DataModel
+    url: data-model/sunlight-data-model.yml
+  - type: Conformance
+    url: conformance/sunlight-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/sunlight-lifecycle.yml
 common:
 - type: Website
-  url: http://sunlight.is
+  url: https://sunlight.is
+- type: DeveloperPortal
+  url: https://docs.sunlight.is/
+- type: Documentation
+  url: https://docs.sunlight.is/
+- type: APIReference
+  url: https://docs.sunlight.is/
+- type: Authentication
+  url: authentication/sunlight-authentication.yml
+- type: Conventions
+  url: conventions/sunlight-conventions.yml
+- type: ErrorCatalog
+  url: errors/sunlight-problem-types.yml
+- type: DataModel
+  url: data-model/sunlight-data-model.yml
+- type: Conformance
+  url: conformance/sunlight-conformance.yml
+- type: Lifecycle
+  url: lifecycle/sunlight-lifecycle.yml
+- type: DomainSecurity
+  url: security/sunlight-domain-security.yml
+- type: LLMsTxt
+  url: llms/sunlight-llms.txt

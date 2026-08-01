@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  Derived from Sunlight's documented conventions at https://docs.sunlight.is/
+  (JSON:API media type, pagination, sorting, filtering, includes, bearer auth,
+  HTTP status codes). No published compliance/certification program was found.
+standards:
+- id: json-api
+  conforms: true
+  evidence: >-
+    Docs state the API "was built under the JSON API specifications"; requests
+    and responses use the application/vnd.api+json media type and the JSON:API
+    document envelope (data/attributes/relationships/included/meta/links), with
+    the JSON:API sort, page and include query parameters.
+- id: rest
+  conforms: true
+  evidence: Resource-oriented HTTP with standard verbs (GET/POST) over HTTPS.
+- id: http-bearer-auth
+  conforms: true
+  evidence: Bearer API key passed in the Authorization header.
+- id: pagination
+  conforms: true
+  evidence: JSON:API page-number pagination via page[number] / page[size] (max 50).
+- id: oauth2
+  conforms: false
+  evidence: No OAuth2 flows documented; a single opaque Bearer API key is used.
+- id: oidc
+  conforms: false
+  evidence: No /.well-known/openid-configuration; no OIDC discovery.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors follow JSON:API errors, not RFC 9457 application/problem+json.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: No /.well-known/security.txt found on reachable hosts.

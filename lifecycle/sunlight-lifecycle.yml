@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.sunlight.is/ (route paths) + live DNS/TLS probes 2026-07-21
+versioning:
+  scheme: uri-path
+  current: mixed
+  note: >-
+    The API mixes unversioned routes (/api/groups, /api/credits, /api/activities)
+    with v2 routes (/api/v2/orders, /api/v2/group-invitations, /api/v2/group-users).
+    No version-negotiation header or dated-version scheme is documented.
+  docs: https://docs.sunlight.is/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No deprecation or Sunset/Deprecation (RFC 8594) policy is documented.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+operational_status:
+  observed_date: '2026-07-21'
+  state: dormant
+  detail: >-
+    The documented API backend host app.sunlight.is / api.sunlight.is is a
+    dangling CNAME to a decommissioned AWS Elastic Beanstalk environment
+    (sunlight-production.eu-west-1.elasticbeanstalk.com resolves to no A record),
+    and the apex sunlight.is HTTPS endpoint returns a TLS internal-error alert.
+    The Slate developer docs (docs.sunlight.is) and the Webflow marketing site
+    (www.sunlight.is) remain online. No status page is published.
+deprecated_operations: []
