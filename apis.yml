@@ -40,7 +40,7 @@ x-operational-note: >-
   Pages) and the Webflow marketing site (www.sunlight.is) remain online. The
   API surface captured here is faithfully harvested from the live public docs;
   the service itself appears dormant.
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-21'
 x-enrichment:
