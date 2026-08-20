@@ -57,6 +57,17 @@ tags:
 - Spending
 - Fintech
 - JSON:API
+- Group
+- Order
+tags_raw:
+- Company
+- Education
+- EdTech
+- Learning
+- Budgeting
+- Spending
+- Fintech
+- JSON:API
 - Groups
 - Orders
 maintainers:
@@ -74,6 +85,12 @@ apis:
   humanURL: https://docs.sunlight.is/
   baseURL: https://app.sunlight.is/api
   tags:
+  - Education
+  - Group
+  - Order
+  - Activities
+  - Budgeting
+  tags_raw:
   - Education
   - Groups
   - Orders
