@@ -64,6 +64,86 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Sunlight is a company surfaced as a portfolio company of seedcamp, speedinvest and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Sunlight is an educational-spending platform that lets organizations fund learning for their people. Administrators create groups, invite registered or unregistered members, allocate a per-user education budget ("sunlight"), and let members place orders for courses, books and subscriptions from providers such as Amazon and Platzi, while an activity feed tracks what members join and buy. Its REST API is built on the JSON:API specification (media type application/vnd.api+json) with Bearer-token authentication, and exposes groups, group membership and invitations, per-user credit/budget transactions, orders, and activities. Sunlight was backed by Seedcamp and Speedinvest.
 
-Backed by: seedcamp, speedinvest — http://sunlight.is
+**Areas:** Company · Education · EdTech · Learning · Budgeting · Spending · Fintech · JSON:API · Group · Order
+
+## Sunlight on APIs.io
+
+Everything profiled for Sunlight is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/sunlight/](https://apis.io/providers/sunlight/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Sunlight API](https://apis.io/apis/sunlight/sunlight-api/) — Sunlight's REST/JSON:API for managing education-spending groups: create groups, invite registered and unregistered users, edit individual member budgets…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Sunlight Authentication](https://apis.io/security/sunlight/sunlight-authentication/)
+- [Sunlight Domain Security](https://apis.io/security/sunlight/sunlight-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://sunlight.is)
+- [Documentation](https://docs.sunlight.is/)
+- [API reference](https://docs.sunlight.is/)
+
+## API Evangelist rating
+
+**Kin Score 16.9** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 38.1 |
+| Access clarity | 0.0 |
+
+**Agent readiness 5.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/sunlight/](https://apis.io/providers/sunlight/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Sunlight: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/sunlight/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
